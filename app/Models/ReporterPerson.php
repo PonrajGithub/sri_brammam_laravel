@@ -14,6 +14,7 @@ class ReporterPerson extends Model
         'pincode', 
         'mobile', 
         'email', 
+        'profile_image',
         'status'
     ];
 

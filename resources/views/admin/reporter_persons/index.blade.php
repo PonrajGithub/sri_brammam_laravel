@@ -11,6 +11,7 @@
         <thead>
             <tr>
                 <th>ID</th>
+                <th>Image</th>
                 <th>Name</th>
                 <th>Reporter</th>
                 <th>Role</th>
@@ -25,6 +26,13 @@
             @forelse($persons as $person)
                 <tr>
                     <td>{{ $person->id }}</td>
+                    <td>
+                        @if($person->profile_image)
+                            <img src="{{ asset('storage/' . $person->profile_image) }}" alt="Profile" style="width: 50px; height: 50px; object-fit: cover; border-radius: 8px;">
+                        @else
+                            <span style="color: #64748b; font-size: 0.875rem;">No image</span>
+                        @endif
+                    </td>
                     <td>{{ $person->name }}</td>
                     <td>{{ $person->reporter->name ?? 'N/A' }}</td>
                     <td>{{ $person->describe_role }}</td>
@@ -51,7 +59,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="9" style="text-align: center; padding: 2rem;">No reporter persons found.</td>
+                    <td colspan="10" style="text-align: center; padding: 2rem;">No reporter persons found.</td>
                 </tr>
             @endforelse
         </tbody>

@@ -7,7 +7,7 @@
 </div>
 
 <div class="glass" style="padding: 2rem;">
-    <form action="{{ route('admin.reporter-persons.store') }}" method="POST">
+    <form action="{{ route('admin.reporter-persons.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label class="form-label" for="reporter_id">Select Reporter</label>
@@ -26,6 +26,14 @@
             <label class="form-label" for="name">Full Name</label>
             <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required>
             @error('name')
+                <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>
+            @enderror
+        </div>
+
+        <div class="form-group">
+            <label class="form-label" for="profile_image">Profile Image (Max 10MB)</label>
+            <input type="file" name="profile_image" id="profile_image" class="form-control" accept="image/*">
+            @error('profile_image')
                 <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>
             @enderror
         </div>

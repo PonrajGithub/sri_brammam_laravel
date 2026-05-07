@@ -22,9 +22,11 @@ class ReporterPersonResource extends JsonResource
             'pincode' => $this->pincode,
             'mobile' => $this->mobile,
             'email' => $this->email,
+            'profile_image' => $this->profile_image ? asset('storage/' . $this->profile_image) : null,
             'status' => (boolean) $this->status,
             'reporter' => new ReporterResource($this->whenLoaded('reporter')),
             'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

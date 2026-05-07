@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ReporterPerson;
 use App\Models\Reporter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ReporterPersonController extends Controller
 {
@@ -30,7 +31,12 @@ class ReporterPersonController extends Controller
             'pincode' => 'nullable|string|max:10',
             'mobile' => 'nullable|string|max:20',
             'email' => 'nullable|email|max:255',
+            'profile_image' => 'nullable|image|max:10240',
         ]);
+
+        if ($request->hasFile('profile_image')) {
+            $validated['profile_image'] = $request->file('profile_image')->store('reporters', 'public');
+        }
 
         ReporterPerson::create($validated);
 
@@ -53,7 +59,15 @@ class ReporterPersonController extends Controller
             'pincode' => 'nullable|string|max:10',
             'mobile' => 'nullable|string|max:20',
             'email' => 'nullable|email|max:255',
+            'profile_image' => 'nullable|image|max:10240',
         ]);
+
+        if ($request->hasFile('profile_image')) {
+            if ($reporterPerson->profile_image) {
+                Storage::disk('public')->delete($reporterPerson->profile_image);
+            }
+            $validated['profile_image'] = $request->file('profile_image')->store('reporters', 'public');
+        }
 
         $reporterPerson->update($validated);
 
