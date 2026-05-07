@@ -20,6 +20,7 @@ Route::get('/creators', [\App\Http\Controllers\Api\FrontendController::class, 'c
 Route::get('/clients', [\App\Http\Controllers\Api\FrontendController::class, 'clients']);
 Route::get('/reporters', [\App\Http\Controllers\Api\FrontendController::class, 'reporters']);
 Route::get('/reporter-persons', [\App\Http\Controllers\Api\FrontendController::class, 'reporterPersons']);
+Route::get('/global-config', [\App\Http\Controllers\Api\FrontendController::class, 'globalConfig']);
 
 // Admin APIs (No Sanctum auth based on user feedback to just apply modules)
 Route::prefix('admin')->group(function () {

@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Reporter;
 use App\Models\ReporterPerson;
+use App\Models\GlobalConfig;
 use App\Http\Resources\ClientResource;
 use App\Http\Resources\ReporterResource;
 use App\Http\Resources\ReporterPersonResource;
@@ -94,5 +95,14 @@ class FrontendController extends Controller
         }
 
         return ReporterPersonResource::collection($query->latest()->get());
+    }
+
+    public function globalConfig()
+    {
+        $config = GlobalConfig::first();
+        return response()->json([
+            'success' => true,
+            'data' => $config
+        ]);
     }
 }
