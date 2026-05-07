@@ -49,7 +49,9 @@ class VideoUrlController extends Controller
 
     public function destroy(VideoUrl $videoUrl)
     {
-        $videoUrl->delete();
-        return redirect()->route('admin.video-urls.index')->with('success', 'Video URL deleted successfully.');
+        $videoUrl->update(['status' => !$videoUrl->status]);
+
+        $status = $videoUrl->status ? 'activated' : 'deactivated';
+        return redirect()->route('admin.video-urls.index')->with('success', "Video URL {$status} successfully.");
     }
 }

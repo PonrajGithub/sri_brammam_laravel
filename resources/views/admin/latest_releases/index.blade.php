@@ -15,6 +15,8 @@
                 <th>Title</th>
                 <th>PDF</th>
                 <th>Created At</th>
+                <th>Updated At</th>
+                <th>Status</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -37,19 +39,29 @@
                             <span style="color: #64748b; font-size: 0.875rem;">No PDF</span>
                         @endif
                     </td>
-                    <td>{{ $release->created_at->format('M d, Y') }}</td>
+                    <td>{{ $release->created_at->format('M d, Y H:i') }}</td>
+                    <td>{{ $release->updated_at->format('M d, Y H:i') }}</td>
+                    <td>
+                        @if($release->status)
+                            <span class="badge" style="background: rgba(34, 197, 94, 0.2); color: #22c55e; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Active</span>
+                        @else
+                            <span class="badge" style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Inactive</span>
+                        @endif
+                    </td>
                     <td>
                         <a href="{{ route('admin.latest-releases.edit', $release) }}" class="btn btn-sm btn-primary">Edit</a>
                         <form action="{{ route('admin.latest-releases.destroy', $release) }}" method="POST" style="display:inline-block;">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">Delete</button>
+                            <button type="submit" class="btn btn-sm {{ $release->status ? 'btn-danger' : 'btn-success' }}" style="{{ !$release->status ? 'background: #22c55e; border-color: #22c55e;' : '' }}">
+                                {{ $release->status ? 'Deactivate' : 'Activate' }}
+                            </button>
                         </form>
                     </td>
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" style="text-align: center; padding: 2rem;">No releases found.</td>
+                    <td colspan="8" style="text-align: center; padding: 2rem;">No releases found.</td>
                 </tr>
             @endforelse
         </tbody>

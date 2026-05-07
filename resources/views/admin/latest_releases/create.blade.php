@@ -13,23 +13,23 @@
             <label class="form-label" for="title">Title</label>
             <input type="text" id="title" name="title" class="form-control" value="{{ old('title') }}" required>
             @error('title')
-                <span class="invalid-feedback">{{ $message }}</span>
+                <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="image">Image Upload</label>
+            <label class="form-label" for="image">Image Upload (Max 10MB)</label>
             <input type="file" id="image" name="image" class="form-control" accept="image/*">
             @error('image')
-                <span class="invalid-feedback">{{ $message }}</span>
+                <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>
             @enderror
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="pdf">PDF Upload</label>
+            <label class="form-label" for="pdf">PDF Upload (Max 50MB)</label>
             <input type="file" id="pdf" name="pdf" class="form-control" accept="application/pdf">
             @error('pdf')
-                <span class="invalid-feedback">{{ $message }}</span>
+                <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>
             @enderror
         </div>
 
@@ -37,7 +37,7 @@
             <label class="form-label" for="description">Description</label>
             <textarea id="description" name="description" class="form-control rich-text">{{ old('description') }}</textarea>
             @error('description')
-                <span class="invalid-feedback">{{ $message }}</span>
+                <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>
             @enderror
         </div>
 

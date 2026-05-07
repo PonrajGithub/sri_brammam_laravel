@@ -10,7 +10,7 @@ class ApiController extends Controller
 {
     public function getVideoUrls()
     {
-        $videoUrls = VideoUrl::latest()->get();
+        $videoUrls = VideoUrl::where('status', true)->latest()->get();
         return response()->json([
             'success' => true,
             'data' => $videoUrls
@@ -19,7 +19,7 @@ class ApiController extends Controller
 
     public function getLatestReleases()
     {
-        $releases = LatestRelease::latest()->get();
+        $releases = LatestRelease::where('status', true)->latest()->get();
         
         // Map paths to full URLs
         $releases->transform(function ($release) {

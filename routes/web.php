@@ -16,5 +16,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         
         Route::resource('video-urls', \App\Http\Controllers\VideoUrlController::class);
         Route::resource('latest-releases', \App\Http\Controllers\LatestReleaseController::class);
+        
+        Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+        Route::resource('creators', \App\Http\Controllers\CreatorController::class);
+        Route::resource('posts', \App\Http\Controllers\PostController::class);
+        Route::resource('clients', \App\Http\Controllers\ClientController::class);
+        Route::resource('reporters', \App\Http\Controllers\ReporterController::class);
+        Route::resource('reporter-persons', \App\Http\Controllers\ReporterPersonController::class);
     });
 });

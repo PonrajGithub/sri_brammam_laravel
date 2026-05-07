@@ -23,8 +23,8 @@ class LatestReleaseController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'pdf' => 'nullable|mimes:pdf|max:10000',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'pdf' => 'nullable|mimes:pdf|max:51200',
             'description' => 'nullable|string',
         ]);
 
@@ -55,8 +55,8 @@ class LatestReleaseController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'pdf' => 'nullable|mimes:pdf|max:10000',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:10240',
+            'pdf' => 'nullable|mimes:pdf|max:51200',
             'description' => 'nullable|string',
         ]);
 
@@ -86,15 +86,9 @@ class LatestReleaseController extends Controller
 
     public function destroy(LatestRelease $latestRelease)
     {
-        if ($latestRelease->image_path) {
-            Storage::disk('public')->delete($latestRelease->image_path);
-        }
-        if ($latestRelease->pdf_path) {
-            Storage::disk('public')->delete($latestRelease->pdf_path);
-        }
+        $latestRelease->update(['status' => !$latestRelease->status]);
 
-        $latestRelease->delete();
-
-        return redirect()->route('admin.latest-releases.index')->with('success', 'Release deleted successfully.');
+        $status = $latestRelease->status ? 'activated' : 'deactivated';
+        return redirect()->route('admin.latest-releases.index')->with('success', "Release {$status} successfully.");
     }
 }
