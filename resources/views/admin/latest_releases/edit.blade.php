@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="image">Image Upload (Max 10MB)</label>
+            <label class="form-label" for="image">Image Upload (Max 10MB - 841 x 1268)</label>
             @if($latestRelease->image_path)
                 <div style="margin-bottom: 1rem;">
                     <img src="{{ asset('storage/' . $latestRelease->image_path) }}" alt="Current Image" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">

@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="image">Image Upload (Max 10MB)</label>
+            <label class="form-label" for="image">Image Upload (Max 10MB - 841 x 1268)</label>
             <input type="file" id="image" name="image" class="form-control" accept="image/*">
             @error('image')
                 <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>

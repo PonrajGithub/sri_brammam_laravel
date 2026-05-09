@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="image">Featured Image (Leave blank to keep current - Max 10MB)</label>
+            <label class="form-label" for="image">Featured Image (Leave blank to keep current - Max 10MB - 841 x 1268)</label>
             <input type="file" name="image" id="image" class="form-control" accept="image/*">
             @if($post->image)
                 <div style="margin-top: 1rem;">
