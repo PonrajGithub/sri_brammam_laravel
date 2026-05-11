@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="client_logo">Client Logo (Max 10MB)</label>
+            <label class="form-label" for="client_logo">Client Logo (Max 10MB - 512 x 512)</label>
             @if($client->client_logo)
                 <div style="margin-bottom: 10px;">
                     <img src="{{ asset('storage/' . $client->client_logo) }}" alt="Logo" style="width: 100px; height: 100px; object-fit: cover; border-radius: 8px;">

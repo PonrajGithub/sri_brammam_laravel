@@ -19,7 +19,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="profile_image">Profile Image (Optional - Max 10MB)</label>
+            <label class="form-label" for="profile_image">Profile Image (Optional - Max 10MB - 1024 x 1024)</label>
             <input type="file" name="profile_image" id="profile_image" class="form-control" accept="image/*">
             @error('profile_image')
                 <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>

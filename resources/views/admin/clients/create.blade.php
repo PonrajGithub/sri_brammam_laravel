@@ -18,7 +18,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="client_logo">Client Logo (Max 10MB)</label>
+            <label class="form-label" for="client_logo">Client Logo (Max 10MB - 512 x 512)</label>
             <input type="file" name="client_logo" id="client_logo" class="form-control" accept="image/*">
             @error('client_logo')
                 <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>

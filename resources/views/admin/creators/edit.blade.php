@@ -20,7 +20,7 @@
         </div>
 
         <div class="form-group">
-            <label class="form-label" for="profile_image">Profile Image (Leave blank to keep current - Max 10MB)</label>
+            <label class="form-label" for="profile_image">Profile Image (Leave blank to keep current - Max 10MB - 1024 x 1024)</label>
             <input type="file" name="profile_image" id="profile_image" class="form-control" accept="image/*">
             @if($creator->profile_image)
                 <div style="margin-top: 1rem;">
