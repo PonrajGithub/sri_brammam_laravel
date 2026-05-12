@@ -83,7 +83,7 @@ class FrontendController extends Controller
 
     public function reporters()
     {
-        return ReporterResource::collection(Reporter::where('status', true)->latest()->get());
+        return ReporterResource::collection(Reporter::where('status', true)->orderBy('list_order', 'asc')->latest()->get());
     }
 
     public function reporterPersons(Request $request)

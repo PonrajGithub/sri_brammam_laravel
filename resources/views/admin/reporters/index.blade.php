@@ -12,6 +12,7 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Order</th>
                 <th>Status</th>
                 <th>Created At</th>
                 <th>Updated At</th>
@@ -23,6 +24,7 @@
                 <tr>
                     <td>{{ $reporter->id }}</td>
                     <td>{{ $reporter->name }}</td>
+                    <td>{{ $reporter->list_order }}</td>
                     <td>
                         @if($reporter->status)
                             <span class="badge" style="background: rgba(34, 197, 94, 0.2); color: #22c55e; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem;">Active</span>
@@ -45,7 +47,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="6" style="text-align: center; padding: 2rem;">No reporters found.</td>
+                    <td colspan="7" style="text-align: center; padding: 2rem;">No reporters found.</td>
                 </tr>
             @endforelse
         </tbody>

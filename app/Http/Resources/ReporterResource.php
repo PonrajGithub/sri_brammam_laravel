@@ -17,6 +17,7 @@ class ReporterResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->name,
+            'list_order' => $this->list_order,
             'status' => (boolean) $this->status,
             'created_at' => $this->created_at,
         ];

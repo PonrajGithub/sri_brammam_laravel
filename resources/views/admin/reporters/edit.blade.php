@@ -19,6 +19,14 @@
             @enderror
         </div>
 
+        <div class="form-group">
+            <label class="form-label" for="list_order">List Order</label>
+            <input type="number" name="list_order" id="list_order" class="form-control" value="{{ old('list_order', $reporter->list_order) }}">
+            @error('list_order')
+                <div style="color: #ef4444; margin-top: 0.5rem; font-size: 0.875rem;">{{ $message }}</div>
+            @enderror
+        </div>
+
         <button type="submit" class="btn btn-primary">Update Reporter</button>
     </form>
 </div>

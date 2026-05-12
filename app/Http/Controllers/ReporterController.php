@@ -9,7 +9,7 @@ class ReporterController extends Controller
 {
     public function index()
     {
-        $reporters = Reporter::latest()->get();
+        $reporters = Reporter::orderBy('list_order', 'asc')->latest()->get();
         return view('admin.reporters.index', compact('reporters'));
     }
 
@@ -22,6 +22,7 @@ class ReporterController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'list_order' => 'nullable|integer',
         ]);
 
         Reporter::create($validated);
@@ -38,6 +39,7 @@ class ReporterController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|max:255',
+            'list_order' => 'nullable|integer',
         ]);
 
         $reporter->update($validated);

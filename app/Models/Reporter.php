@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reporter extends Model
 {
-    protected $fillable = ['name', 'status'];
+    protected $fillable = ['name', 'list_order', 'status'];
 }
