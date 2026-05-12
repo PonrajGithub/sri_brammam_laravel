@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="header">
-    <h1>Edit Release</h1>
+    <h1>Edit Issue</h1>
     <a href="{{ route('admin.latest-releases.index') }}" class="btn" style="background: rgba(255,255,255,0.1); color: white;">Back</a>
 </div>
 
@@ -55,7 +55,7 @@
             @enderror
         </div>
 
-        <button type="submit" class="btn btn-primary">Update Release</button>
+        <button type="submit" class="btn btn-primary">Update Issue</button>
     </form>
 </div>
 @endsection

@@ -8,7 +8,7 @@
 <div class="grid">
     <div class="stat-card glass">
         <h3>{{ $releaseCount }}</h3>
-        <p>Latest Releases</p>
+        <p>Latest Issues</p>
     </div>
 </div>
 @endsection

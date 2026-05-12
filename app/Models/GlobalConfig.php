@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class GlobalConfig extends Model
 {
-    protected $fillable = ['year', 'issue', 'reader', 'short_about_us', 'long_about_us', 'login_url'];
+    protected $fillable = ['year', 'issue', 'reader', 'short_about_us', 'long_about_us', 'login_url', 'youtube_url', 'facebook_url'];
 }

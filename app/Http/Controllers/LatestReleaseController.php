@@ -43,7 +43,7 @@ class LatestReleaseController extends Controller
 
         LatestRelease::create($data);
 
-        return redirect()->route('admin.latest-releases.index')->with('success', 'Release created successfully.');
+        return redirect()->route('admin.latest-releases.index')->with('success', 'Issue created successfully.');
     }
 
     public function edit(LatestRelease $latestRelease)
@@ -81,7 +81,7 @@ class LatestReleaseController extends Controller
 
         $latestRelease->update($data);
 
-        return redirect()->route('admin.latest-releases.index')->with('success', 'Release updated successfully.');
+        return redirect()->route('admin.latest-releases.index')->with('success', 'Issue updated successfully.');
     }
 
     public function destroy(LatestRelease $latestRelease)
@@ -89,6 +89,6 @@ class LatestReleaseController extends Controller
         $latestRelease->update(['status' => !$latestRelease->status]);
 
         $status = $latestRelease->status ? 'activated' : 'deactivated';
-        return redirect()->route('admin.latest-releases.index')->with('success', "Release {$status} successfully.");
+        return redirect()->route('admin.latest-releases.index')->with('success', "Issue {$status} successfully.");
     }
 }

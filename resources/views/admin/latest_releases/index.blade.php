@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="header">
-    <h1>Latest Releases</h1>
-    <a href="{{ route('admin.latest-releases.create') }}" class="btn btn-primary">Add New Release</a>
+    <h1>Latest Issues</h1>
+    <a href="{{ route('admin.latest-releases.create') }}" class="btn btn-primary">Add New Issue</a>
 </div>
 
 <div class="table-container glass">
@@ -61,7 +61,7 @@
                 </tr>
             @empty
                 <tr>
-                    <td colspan="8" style="text-align: center; padding: 2rem;">No releases found.</td>
+                    <td colspan="8" style="text-align: center; padding: 2rem;">No issues found.</td>
                 </tr>
             @endforelse
         </tbody>

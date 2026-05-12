@@ -17,7 +17,7 @@
             <ul class="nav-links">
                 <li><a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">Dashboard</a></li>
                 <li><a href="{{ route('admin.video-urls.index') }}" class="{{ request()->routeIs('admin.video-urls.*') ? 'active' : '' }}">Video URLs</a></li>
-                <li><a href="{{ route('admin.latest-releases.index') }}" class="{{ request()->routeIs('admin.latest-releases.*') ? 'active' : '' }}">Latest Releases</a></li>
+                <li><a href="{{ route('admin.latest-releases.index') }}" class="{{ request()->routeIs('admin.latest-releases.*') ? 'active' : '' }}">Latest Issues</a></li>
                 <li><a href="{{ route('admin.categories.index') }}" class="{{ request()->routeIs('admin.categories.*') ? 'active' : '' }}">Categories</a></li>
                 <li><a href="{{ route('admin.creators.index') }}" class="{{ request()->routeIs('admin.creators.*') ? 'active' : '' }}">Top Writers</a></li>
                 <li><a href="{{ route('admin.posts.index') }}" class="{{ request()->routeIs('admin.posts.*') ? 'active' : '' }}">Posts</a></li>
